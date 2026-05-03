@@ -11,6 +11,7 @@ const Gallery = () => {
     const fetchGallery = async () => {
       try {
         const response = await fetch('https://scholaracademyglp.in/api/frontend/gallery?branch_id=37');
+        if (!response.ok) throw new Error('Gallery fetch failed');
         const result = await response.json();
         if ((result.status === 'success' || result.status === 'Success') && result.data) {
           setImages(result.data);
@@ -84,7 +85,7 @@ const Gallery = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.4 }}
-                  className="relative group rounded-[2.5rem] overflow-hidden aspect-square shadow-xl hover:shadow-2xl transition-shadow duration-500"
+                  className="relative group rounded-[2.5rem] overflow-hidden aspect-square shadow-premium hover-lift transition-all duration-500"
                 >
                   <img 
                     src={image.thumb_image_url || image.images_url?.[0]} 

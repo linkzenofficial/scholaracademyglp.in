@@ -16,7 +16,7 @@ const Contact = () => {
             <h2 className="text-4xl font-bold text-slate-800 dark:text-white mb-6">
               Get in <span className="gradient-text">Touch</span>
             </h2>
-            <p className="text-slate-500 dark:text-slate-400 mb-10">
+            <p className="text-slate-500 dark:text-slate-200 mb-10 font-medium">
               Have questions? We're here to help. Reach out to us via phone, 
               email, or visit our campus.
             </p>
@@ -33,7 +33,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-800 dark:text-white mb-1">{item.title}</h4>
-                    <p className="text-slate-500 dark:text-slate-400">{item.content}</p>
+                    <p className="text-slate-500 dark:text-slate-200 font-medium">{item.content}</p>
                   </div>
                 </div>
               ))}
@@ -44,7 +44,7 @@ const Contact = () => {
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            className="lg:w-2/3 glass-card p-10"
+            className="lg:w-2/3 glass-card p-10 shadow-premium"
           >
             <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">

@@ -58,8 +58,7 @@ const Courses = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="glass-card group overflow-hidden border border-white/10"
+              className="glass-card group overflow-hidden border border-white/10 hover-lift shadow-premium"
             >
               <div className="h-48 overflow-hidden relative">
                 <img 
@@ -77,7 +76,7 @@ const Courses = () => {
                 <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-3">
                   {course.title}
                 </h3>
-                <p className="text-slate-500 dark:text-slate-300 text-sm mb-6 line-clamp-3">
+                <p className="text-slate-500 dark:text-slate-200 text-sm mb-6 line-clamp-3">
                   {course.desc}
                 </p>
                 <button className="text-brand-blue font-bold flex items-center gap-2 hover:gap-3 transition-all">

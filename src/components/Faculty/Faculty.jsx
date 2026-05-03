@@ -50,7 +50,7 @@ const Faculty = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.1 }}
-              className="glass-card rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow group border border-white/10"
+              className="glass-card rounded-3xl overflow-hidden shadow-premium hover-lift transition-all group border border-white/10"
             >
               <div className="relative overflow-hidden h-72">
                 <img 
@@ -75,7 +75,7 @@ const Faculty = () => {
                 </h4>
                 <p className="text-brand-blue font-semibold text-sm mb-2">{teacher.role}</p>
                 <div className="h-px w-12 bg-slate-200 dark:bg-slate-700 mx-auto mb-3"></div>
-                <p className="text-slate-500 dark:text-slate-300 text-xs uppercase tracking-widest font-bold">
+                <p className="text-slate-500 dark:text-slate-200 text-xs uppercase tracking-widest font-bold">
                   {teacher.subject}
                 </p>
               </div>

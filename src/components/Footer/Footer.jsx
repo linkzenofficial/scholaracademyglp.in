@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaPaperPlane } from 'react-icons/fa';
+import logo from '../../assets/logo-small-37.png';
 
 const Footer = () => {
   return (
@@ -9,8 +10,10 @@ const Footer = () => {
           {/* Brand Col */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 gradient-bg rounded-full flex items-center justify-center font-bold text-xl">SA</div>
-              <h3 className="text-2xl font-bold">Scholar Academy</h3>
+              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg overflow-hidden p-1">
+                <img src={logo} alt="Scholar Academy Logo" className="w-full h-full object-contain" />
+              </div>
+              <h3 className="text-2xl font-bold uppercase tracking-tighter">Scholar Academy</h3>
             </div>
             <p className="text-slate-400 mb-6 leading-relaxed">
               Moriom Nagar, P.O: Baladamari, PS :Goalpara, Dist: Goalpara, (Assam) Pin 783101
@@ -82,7 +85,7 @@ const Footer = () => {
         </div>
 
         <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-slate-500 font-medium">
-          <p>&copy; {new Date().getFullYear()} Scholar Academy (Estd: 2014). All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Scholar Academy (Estd: 2014). All rights reserved. Developed by <a href="https://linkzen.in" className="text-brand-blue hover:underline">Linkzen Technology</a></p>
           <div className="flex gap-8">
             <a href="#" className="hover:text-white">Terms of Service</a>
             <a href="#" className="hover:text-white">Cookie Policy</a>

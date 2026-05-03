@@ -40,6 +40,7 @@ const Admission = () => {
     const fetchConfig = async () => {
       try {
         const response = await fetch('https://scholaracademyglp.in/api/frontend/admission?branch_id=37');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const result = await response.json();
         if ((result.status === 'success' || result.status === 'Success') && result.data) {
           setConfig(result.data);
@@ -146,7 +147,7 @@ const Admission = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-6xl font-black gradient-text mb-4 uppercase tracking-tighter">
+          <h1 className="text-4xl md:text-6xl font-black gradient-text mb-4 uppercase tracking-tighter text-balance">
             Admission Portal
           </h1>
           <p className="text-slate-600 dark:text-slate-400 font-medium max-w-2xl mx-auto">
@@ -156,7 +157,7 @@ const Admission = () => {
 
         {step < 4 && renderStepIndicator()}
 
-        <div className="glass rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+        <div className="glass rounded-3xl p-8 md:p-12 shadow-premium relative overflow-hidden">
           <AnimatePresence mode="wait">
             {step === 1 && (
               <motion.div

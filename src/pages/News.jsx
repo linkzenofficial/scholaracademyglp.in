@@ -11,6 +11,7 @@ const News = () => {
     const fetchNews = async () => {
       try {
         const response = await fetch('https://scholaracademyglp.in/api/frontend/news?branch_id=37');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const result = await response.json();
         if ((result.status === 'success' || result.status === 'Success') && result.data) {
           setNews(result.data);

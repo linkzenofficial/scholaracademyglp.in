@@ -15,11 +15,11 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="w-full lg:w-1/2 relative"
           >
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
+            <div className="relative z-10 rounded-2xl overflow-hidden shadow-premium border-4 border-white/10">
               <img 
                 src={mainBuilding} 
                 alt="Scholar Academy Main Building" 
-                className="w-full h-[500px] object-cover"
+                className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
             {/* Decorative elements */}
@@ -31,9 +31,9 @@ const About = () => {
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5 }}
-              className="absolute bottom-10 right-[-20px] glass p-6 rounded-2xl shadow-xl z-20 hidden md:block border border-white/10"
+              className="absolute bottom-10 right-[-20px] glass p-6 rounded-2xl shadow-premium z-20 hidden md:block border border-white/10"
             >
-              <h4 className="text-4xl font-bold gradient-text">25+</h4>
+              <h4 className="text-4xl font-bold gradient-text">10+</h4>
               <p className="text-slate-600 dark:text-slate-200 font-medium">Years of Excellence</p>
             </motion.div>
           </motion.div>
@@ -49,13 +49,13 @@ const About = () => {
             <span className="text-brand-blue font-bold tracking-widest uppercase text-sm mb-4 block">
               About Our School
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-800 dark:text-white mb-6 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-800 dark:text-white mb-6 leading-tight text-balance">
               Preparing Students for <span className="gradient-text">Success</span> in Life.
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
               At Scholar Academy, we believe that education is more than just academic achievement. 
               Our holistic approach focuses on developing critical thinking, creativity, and 
-              character. Founded in 1995, we have consistently ranked among the top 
+              character. Founded in 2014, we have consistently ranked among the top 
               educational institutions globally.
             </p>
             
@@ -69,8 +69,8 @@ const About = () => {
                 <div key={idx} className="flex gap-4">
                   <div className="w-2 h-full gradient-bg rounded-full shrink-0"></div>
                   <div>
-                    <h5 className="font-bold text-slate-800 dark:text-slate-100">{item.title}</h5>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">{item.desc}</p>
+                    <h5 className="font-bold text-slate-800 dark:text-white">{item.title}</h5>
+                    <p className="text-sm text-slate-500 dark:text-slate-300">{item.desc}</p>
                   </div>
                 </div>
               ))}

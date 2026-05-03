@@ -16,6 +16,9 @@ const Principal = () => {
     const fetchPrincipal = async () => {
       try {
         const response = await fetch('https://scholaracademyglp.in/api/frontend/testimonial?branch_id=37');
+        if (!response.ok) {
+          throw new Error(`Server responded with ${response.status}: ${response.statusText}`);
+        }
         const result = await response.json();
         if ((result.status === 'success' || result.status === 'Success') && result.data) {
           const updatedData = result.data.map(item => {
@@ -42,14 +45,19 @@ const Principal = () => {
   if (news.length === 0) return null;
 
   return (
-    <section className="py-24 relative overflow-hidden bg-white/30 dark:bg-slate-900/30 backdrop-blur-sm">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="py-24 relative overflow-hidden mesh-gradient border-y border-slate-100 dark:border-slate-800">
+      <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-blue/20 rounded-full blur-[120px] animate-blob"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-purple/20 rounded-full blur-[120px] animate-blob [animation-delay:2s]"></div>
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <Swiper
           modules={[Pagination, Autoplay]}
           spaceBetween={50}
           slidesPerView={1}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 6000, disableOnInteraction: false }}
+          autoplay={{ delay: 8000, disableOnInteraction: false }}
           className="principal-swiper pb-16"
         >
           {news.map((item, index) => (
@@ -77,10 +85,10 @@ const Principal = () => {
                   
                   <div className="relative mb-8">
                     <FaQuoteLeft className="text-6xl text-brand-blue/10 absolute -top-8 -left-8" />
-                    <h2 className="text-3xl md:text-5xl font-black text-slate-800 dark:text-white leading-tight mb-8 uppercase tracking-tighter">
+                    <h2 className="text-3xl md:text-5xl font-black text-slate-800 dark:text-white leading-tight mb-8 uppercase tracking-tighter text-balance">
                       Building a <span className="gradient-text">Legacy of Excellence</span> and Integrity.
                     </h2>
-                    <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 italic leading-relaxed font-medium">
+                    <p className="text-base md:text-lg text-slate-600 dark:text-slate-200 italic leading-relaxed font-medium">
                       "{item.description}"
                     </p>
                   </div>
@@ -93,9 +101,6 @@ const Principal = () => {
                       </p>
                     </div>
                     <div className="hidden sm:block h-12 w-px bg-slate-200 dark:bg-slate-800 mx-4"></div>
-                    <div className="w-12 h-12 rounded-2xl bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center border border-slate-100 dark:border-slate-700 shrink-0">
-                      <span className="text-brand-blue font-black text-xl">SA</span>
-                    </div>
                   </div>
                 </div>
 

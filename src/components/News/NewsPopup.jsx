@@ -11,6 +11,7 @@ const NewsPopup = () => {
     const fetchNews = async () => {
       try {
         const response = await fetch('https://scholaracademyglp.in/api/frontend/news?branch_id=37');
+        if (!response.ok) throw new Error('News fetch failed');
         const result = await response.json();
         if ((result.status === 'success' || result.status === 'Success') && result.data && result.data.length > 0) {
           // Sort by date (newest first) and take the top 3
@@ -83,7 +84,7 @@ const NewsPopup = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 + index * 0.1 }}
-                  className="group flex gap-6 p-4 rounded-3xl hover:bg-white/50 dark:hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-slate-100 dark:hover:border-slate-800"
+                  className="group flex gap-6 p-4 rounded-3xl hover:bg-white/50 dark:hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-slate-100 dark:hover:border-slate-800 hover-lift shadow-soft"
                 >
                   <div className="shrink-0 w-24 h-24 rounded-2xl overflow-hidden shadow-lg">
                     <img 

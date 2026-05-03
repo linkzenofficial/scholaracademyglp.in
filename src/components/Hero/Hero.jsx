@@ -32,6 +32,9 @@ const Hero = () => {
     const fetchSliders = async () => {
       try {
         const response = await fetch('https://scholaracademyglp.in/api/frontend/slider?branch_id=37');
+        if (!response.ok) {
+          throw new Error(`Server error: ${response.status}`);
+        }
         const result = await response.json();
         if (result.status === 'success' && result.data && result.data.length > 0) {
           setSlides(result.data);
@@ -106,19 +109,19 @@ const Hero = () => {
                   >
                     Welcome to Scholar Academy
                   </motion.span>
-                  <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-[1.1] tracking-tighter">
+                  <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-[1.1] tracking-tighter text-balance">
                     {slide.title.split(' ').map((word, i) => (
                       <span key={i} className={i % 2 === 1 ? 'gradient-text' : ''}>{word} </span>
                     ))}
                   </h2>
-                  <p className="text-xl md:text-2xl mb-10 text-white/80 font-light max-w-xl">
+                  <p className="text-xl md:text-2xl mb-10 text-white/80 font-light max-w-xl text-balance">
                     {slide.subtitle || 'Empowering students to achieve excellence and personal growth through innovative learning.'}
                   </p>
                   <div className="flex flex-wrap gap-6">
-                    <button className="px-10 py-4 gradient-bg rounded-2xl font-bold shadow-[0_20px_50px_rgba(59,130,246,0.4)] hover:scale-105 transition-all active:scale-95 text-lg">
+                    <button className="px-10 py-4 gradient-bg rounded-2xl font-bold shadow-[0_20px_50px_rgba(59,130,246,0.4)] hover-lift transition-all active:scale-95 text-lg">
                       Learn More
                     </button>
-                    <button className="px-10 py-4 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl font-bold hover:bg-white hover:text-brand-blue transition-all text-lg">
+                    <button className="px-10 py-4 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl font-bold hover:bg-white hover:text-brand-blue hover-lift transition-all text-lg">
                       Contact Us
                     </button>
                   </div>
