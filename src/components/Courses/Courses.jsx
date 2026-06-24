@@ -35,9 +35,9 @@ const courses = [
 
 const Courses = () => {
   return (
-    <section className="py-20 bg-transparent">
+    <section className="py-10 md:py-12 bg-transparent">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-10">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

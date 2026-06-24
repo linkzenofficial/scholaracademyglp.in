@@ -32,9 +32,9 @@ const Gallery = () => {
     : images.filter(img => (img.category || 'School') === activeCategory);
 
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-10 md:py-12 relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

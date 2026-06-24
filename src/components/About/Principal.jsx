@@ -8,6 +8,16 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
+const formatDescription = (text) => {
+  if (!text) return "";
+  let formatted = text.replace(/^(?:Massage|Message)\s+from\s+(?:Secretary|Principal)\s*/i, '');
+  formatted = formatted.replace(/Warm wishes, Rofiqul Islam Secretary, Scholar Academy$/i, '');
+  formatted = formatted.replace(/(To our students:)/i, '\n\n$1');
+  formatted = formatted.replace(/(To our teachers:)/i, '\n\n$1');
+  formatted = formatted.replace(/(To our parents:)/i, '\n\n$1');
+  return formatted.trim();
+};
+
 const Principal = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -45,7 +55,7 @@ const Principal = () => {
   if (news.length === 0) return null;
 
   return (
-    <section className="py-24 relative overflow-hidden mesh-gradient border-y border-slate-100 dark:border-slate-800">
+    <section className="py-10 md:py-12 relative overflow-hidden mesh-gradient border-y border-slate-100 dark:border-slate-800">
       <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-blue/20 rounded-full blur-[120px] animate-blob"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-purple/20 rounded-full blur-[120px] animate-blob [animation-delay:2s]"></div>
@@ -70,7 +80,7 @@ const Principal = () => {
                     <img 
                       src={item.image_url || 'https://images.unsplash.com/photo-1544717297-fa95b6ee9643?q=80&w=800&auto=format&fit=crop'} 
                       alt={item.name} 
-                      className="w-full aspect-[4/5] object-cover"
+                      className="w-full aspect-[4/5] object-cover object-top"
                     />
                   </div>
                   <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand-blue/10 rounded-full blur-3xl animate-pulse"></div>
@@ -88,9 +98,9 @@ const Principal = () => {
                     <h2 className="text-3xl md:text-5xl font-black text-slate-800 dark:text-white leading-tight mb-8 uppercase tracking-tighter text-balance">
                       Building a <span className="gradient-text">Legacy of Excellence</span> and Integrity.
                     </h2>
-                    <p className="text-base md:text-lg text-slate-600 dark:text-slate-200 italic leading-relaxed font-medium">
-                      "{item.description}"
-                    </p>
+                    <div className="text-sm md:text-base text-slate-600 dark:text-slate-200 leading-relaxed font-medium whitespace-pre-line max-h-[280px] overflow-y-auto pr-4 custom-scrollbar">
+                      {formatDescription(item.description)}
+                    </div>
                   </div>
 
                   <div className="mt-auto flex items-center gap-6 pt-8 border-t border-slate-200 dark:border-slate-800">

@@ -4,7 +4,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelopeOpenText } from 'react-icons/fa';
 
 const Contact = () => {
   return (
-    <section className="py-20 bg-transparent">
+    <section className="py-10 md:py-12 bg-transparent">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col lg:flex-row gap-16">
           {/* Info Side */}

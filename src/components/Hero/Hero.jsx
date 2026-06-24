@@ -8,6 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
+import HeroNews from './HeroNews';
 
 const defaultSlides = [
   {
@@ -73,20 +74,34 @@ const Hero = () => {
   }
 
   return (
-    <div className="relative h-[80vh] min-h-[600px] w-full overflow-hidden">
-      {/* Creative Background Shapes */}
-      <div className="absolute top-20 left-10 w-20 h-20 border-4 border-white/10 rounded-full animate-float pointer-events-none z-10"></div>
-      <div className="absolute bottom-20 right-10 w-32 h-32 border-4 border-brand-purple/20 rounded-3xl rotate-45 animate-float pointer-events-none z-10 [animation-delay:1s]"></div>
-      <div className="absolute top-1/2 right-20 w-16 h-16 bg-brand-blue/10 rounded-full blur-xl animate-pulse pointer-events-none z-10"></div>
+    <div className="relative h-auto lg:h-[80vh] lg:min-h-[600px] w-full flex flex-col lg:flex-row overflow-hidden bg-[#f8f9fc]">
+      {/* 70% Slider Section */}
+      <div className="w-full lg:w-[70%] h-[50vh] min-h-[400px] lg:h-full lg:min-h-0 relative overflow-hidden">
+        {/* Creative Background Shapes */}
+        <div className="absolute top-20 left-10 w-20 h-20 border-4 border-white/10 rounded-full animate-float pointer-events-none z-10"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 border-4 border-brand-purple/20 rounded-3xl rotate-45 animate-float pointer-events-none z-10 [animation-delay:1s]"></div>
+        <div className="absolute top-1/2 right-20 w-16 h-16 bg-brand-blue/10 rounded-full blur-xl animate-pulse pointer-events-none z-10"></div>
 
-      <Swiper
+        <style>
+          {`
+            @media (min-width: 1024px) {
+              .hero-swiper .swiper-button-next { right: 30px !important; }
+              .hero-swiper .swiper-button-prev { left: 30px !important; }
+            }
+            @media (max-width: 1023px) {
+              .hero-swiper .swiper-button-next { right: 10px !important; transform: scale(0.6); }
+              .hero-swiper .swiper-button-prev { left: 10px !important; transform: scale(0.6); }
+            }
+          `}
+        </style>
+        <Swiper
         modules={[Navigation, Pagination, Autoplay, EffectFade]}
         effect="fade"
         speed={1500}
         autoplay={{ delay: 6000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         navigation={true}
-        className="h-full w-full"
+        className="h-full w-full hero-swiper"
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
@@ -94,7 +109,7 @@ const Hero = () => {
               className="relative h-full w-full bg-cover bg-center flex items-center px-4"
               style={{ backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)), url(${slide.image_url})` }}
             >
-              <div className="container mx-auto px-4 md:px-6">
+              <div className="container mx-auto px-4 md:px-10">
                 <motion.div
                   initial={{ opacity: 0, y: 50, filter: 'blur(10px)' }}
                   whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
@@ -143,6 +158,12 @@ const Hero = () => {
         </div>
         <span className="text-[10px] text-white/50 uppercase tracking-[0.3em] font-bold">Scroll</span>
       </motion.div>
+      </div>
+
+      {/* 30% News Section */}
+      <div className="flex w-full lg:w-[30%] h-[500px] lg:h-full relative z-20 border-t lg:border-t-0 lg:border-l border-gray-200 shadow-[-10px_0_30px_rgba(0,0,0,0.02)]">
+        <HeroNews />
+      </div>
     </div>
   );
 };

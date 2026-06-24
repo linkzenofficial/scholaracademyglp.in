@@ -30,9 +30,9 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-20 bg-transparent overflow-hidden">
+    <section className="py-10 md:py-12 bg-transparent overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-10">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white">
             What People <span className="gradient-text">Say</span>
           </h2>

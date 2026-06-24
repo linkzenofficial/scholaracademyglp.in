@@ -29,9 +29,9 @@ const Faculty = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-transparent">
+    <section className="py-10 md:py-12 bg-transparent">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-10">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mb-4">
             Meet Our <span className="gradient-text">Expert Faculty</span>
           </h2>
@@ -59,28 +59,30 @@ const Faculty = () => {
                   transition={{ delay: index * 0.1 }}
                   className="glass-card rounded-3xl overflow-hidden shadow-premium hover-lift transition-all group border border-white/10"
                 >
-                  <div className="relative overflow-hidden h-72">
-                    <img 
-                      src={imageUrl} 
-                      alt={teacher.name} 
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = fallbackImage;
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
-                      <div className="flex gap-4">
-                        {[FaFacebook, FaTwitter, FaLinkedin].map((Icon, i) => (
-                          <a key={i} href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-colors">
-                            <Icon size={18} />
-                          </a>
-                        ))}
+                  <div className="relative flex flex-col items-center pt-8 bg-gradient-to-b from-slate-50 to-transparent dark:from-slate-800/50">
+                    <div className="relative overflow-hidden w-40 h-40 rounded-full border-[6px] border-white dark:border-slate-700 shadow-xl bg-slate-100 shrink-0 group-hover:-translate-y-2 transition-transform duration-500 z-10">
+                      <img 
+                        src={imageUrl} 
+                        alt={teacher.name} 
+                        className="w-full h-full object-cover object-center"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = fallbackImage;
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-brand-blue/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                        <div className="flex gap-2">
+                          {[FaFacebook, FaTwitter, FaLinkedin].map((Icon, i) => (
+                            <a key={i} href="#" className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-brand-blue hover:scale-110 transition-transform shadow-lg">
+                              <Icon size={14} />
+                            </a>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="p-6 text-center">
+                  <div className="px-6 pb-8 pt-4 text-center">
                     <h4 className="text-xl font-bold text-slate-800 dark:text-white mb-1">
                       {teacher.name}
                     </h4>
